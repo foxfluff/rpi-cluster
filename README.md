@@ -21,3 +21,13 @@ specific end product, with a focus on covering the following topics:
    - Gitlab CI Runners
    - A simple web service which requires some basic db functionality (likely a
      page view counter)
+
+## Technologies to use
+
+These are the technologies I wish to familiarize myself with throughout this
+project.
+
+- Ansible, perhaps Chef
+- Kubernetes, Docker Swarm
+- Docker Compose, Dockerfile
+- Gitlab CI, perhaps Jenkins or Travis
