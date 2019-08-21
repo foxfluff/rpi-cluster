@@ -50,8 +50,10 @@ project.
 |-|-|-|
 | Raspberry Pi 4B - 2GB<sup>*</sup> | 4 | [BuyaPi.ca](https://www.buyapi.ca/product/raspberry-pi-4-model-b-2gb/) |
 | Raspberry Pi PoE Hat | 4 | [BuyaPi.ca](https://www.buyapi.ca/product/raspberry-pi-poe-hat/) |
+| 64GB<sup>**</sup> Micro SD Cards | 4 | |
 | TP-Link TL-SG1005P | 1 | [amazon.ca](https://www.amazon.ca/dp/B076HZFY3F/) |
 | Adafruit Panel Mount <br> Ethernet Extension | 1 (optional) | [Digi-Key](https://www.digikey.ca/product-detail/en/909/1528-1572-ND/5844686) <br> [Adafruit](https://www.adafruit.com/product/909)
 
 <sup>* Doesn't necessarily have to be 2GB, you can probably use whichever
-variant you want</sup>
+variant you want</sup><br>
+<sup>** Can be any size as long as it can fit Raspbian and whatever docker images you need</sup>
