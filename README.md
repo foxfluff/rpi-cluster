@@ -40,6 +40,18 @@ project.
 
 ## Project Overview
 
+### Project Files
 | Location | Description |
 |-|-|
 | [**./3dprint**](./3dprint) | Contains various models used to construct an enclosure for this project |
+
+### Project BOM
+| Product | Quantity | Link |
+|-|-|-|
+| Raspberry Pi 4B - 2GB<sup>*</sup> | 4 | [BuyaPi.ca](https://www.buyapi.ca/product/raspberry-pi-4-model-b-2gb/) |
+| Raspberry Pi PoE Hat | 4 | [BuyaPi.ca](https://www.buyapi.ca/product/raspberry-pi-poe-hat/) |
+| TP-Link TL-SG1005P | 1 | [amazon.ca](https://www.amazon.ca/dp/B076HZFY3F/) |
+| Adafruit Panel Mount <br> Ethernet Extension | 1 (optional) | [Digi-Key](https://www.digikey.ca/product-detail/en/909/1528-1572-ND/5844686) <br> [Adafruit](https://www.adafruit.com/product/909)
+
+<sup>* Doesn't necessarily have to be 2GB, you can probably use whichever
+variant you want</sup>
