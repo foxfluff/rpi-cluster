@@ -31,3 +31,9 @@ project.
 - Kubernetes, Docker Swarm
 - Docker Compose, Dockerfile
 - Gitlab CI, perhaps Jenkins or Travis
+
+## Technologies used so far
+
+- Git! Hosted on Gitlab and Github
+- Fusion360 for enclosure modeling, Meshmixer for basic edits/positioning
+- FDM 3D Printer for creating the enclosure
