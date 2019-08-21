@@ -37,3 +37,9 @@ project.
 - Git! Hosted on Gitlab and Github
 - Fusion360 for enclosure modeling, Meshmixer for basic edits/positioning
 - FDM 3D Printer for creating the enclosure
+
+## Project Overview
+
+| Location | Description |
+|-|-|
+| [**./3dprint**](./3dprint) | Contains various models used to construct an enclosure for this project |
