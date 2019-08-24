@@ -9,6 +9,10 @@
 | RigthCaddy.stl | 4 (1 for each RPi) | PETG (for flexibility) |
 | BaseCaddyHousing.stl | 0, this is a test piece | N/A |
 
+Each part has already been arranged with the appropriate surface facing the
+bed.  I would not recommend rotating any part to be on a different print
+surface.
+
 ## Assembly
 
 **LeftCaddy.stl, RightCaddy.stl:** Using the screws included with the POE Hat,
