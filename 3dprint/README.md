@@ -25,7 +25,8 @@ print surface touching the board.
 of the case as shown below.  After this, slide the POE switch in to place using
 the provided hooks and slide each RPi in to their given slot.  Once everything
 is in place you can connect all your ethernet cables and route as necessary to
-give it a clean look.
+give it a clean look.  At any point you can install the rubber feet provided
+with the POE switch to the bottom of the case.
 
 ![How to attach the Eth panel mount](img/EthPanelAssembly.png)
 
