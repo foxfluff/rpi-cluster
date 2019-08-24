@@ -35,3 +35,9 @@ with the POE switch to the bottom of the case.
 ![POE switch installation](img/POEAssembly.png)
 
 ![Complete assembly](img/CompleteAssembly.png)
+
+After everything has been assembled in to place, I'd recommend crimping some
+custom length cables for them to keep everything looking nice and clean.  I
+recommend around 5-6 inch long cables.
+
+![Photo of finished product](img/AssemblyPhoto.png)
