@@ -1,0 +1,3 @@
+{
+    "ansible.customOptions": "-i /ansible/hosts"
+}
