@@ -1,6 +1,6 @@
 # Update and upgrade needed packages for the systems
 
-- hosts: unconfigured
+- hosts: cluster
   remote_user: pi
   tasks:
   - name: Update and upgrade apt packages
