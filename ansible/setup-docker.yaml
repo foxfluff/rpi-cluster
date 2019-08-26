@@ -1,0 +1,51 @@
+# Install docker and configure all nodes to work together in a swarm
+# TODO: add swarm configuration.
+
+- hosts: cluster
+  remote_user: pi
+  become: yes
+  vars:
+    apt_source: deb [arch=armhf] https://download.docker.com/linux/raspbian buster stable
+    gpg_url: https://download.docker.com/linux/raspbian/gpg
+    gpg_id: "0x0EBFCD88"
+  tasks:
+  # Going to emulate what the docker convenience script does.
+  - name: Install Dependencies.
+    apt:
+      update_cache: yes
+      name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      force_apt_get: yes
+  - name: Download and add GPG key.
+    apt_key:
+      url: "{{ gpg_url }}"
+      id: "{{ gpg_id }}"
+  - name: Modify docker sources file.
+    lineinfile:
+      path: /etc/apt/sources.list.d/docker.list
+      regexp: ^deb.*?download.docker.com.*$
+      line: "{{ apt_source }}"
+      create: yes
+  - name: Install docker-ce
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+      name: docker-ce
+      install_recommends: no
+  - name: Add pi user to the docker group
+    user:
+      name: pi
+      groups: docker
+      append: yes
+  - name: Start docker service
+    systemd:
+      name: docker
+      state: started
+      enabled: yes
+  - name: Print version installed
+    command: "docker -v"
+    register: version
+  - debug:
+      msg: "{{ version.stdout.msg }}"
