@@ -1,0 +1,10 @@
+# Update and upgrade needed packages for the systems
+
+- hosts: unconfigured
+  remote_user: pi
+  tasks:
+  - name: Update and upgrade apt packages
+    become: true
+    apt:
+      update_cache: yes
+      upgrade: yes

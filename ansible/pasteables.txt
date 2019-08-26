@@ -1,0 +1,13 @@
+# A series of useful commands that you may need for quick ad-hoc commands
+
+# Ping all clients
+ansible all -i hosts -u pi -b -m ping
+
+# Check reported hardware revision of RPi's in your cluster
+ansible cluster -i hosts -u pi -a "cat /proc/device-tree/model"
+
+# Shut down the cluster
+ansible cluster -i hosts -u pi -b -a "shutdown -h now"
+
+# Reboot the cluster
+ansible cluster -i hosts -u pi -b -m reboot
