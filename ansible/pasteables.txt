@@ -1,7 +1,7 @@
 # A series of useful commands that you may need for quick ad-hoc commands
 
 # Generate SSH Keys
-ssh-keygen -t rsa -C rpicluster -f ../.private/rpi
+mkdir ../.private; ssh-keygen -t rsa -C rpicluster -f ../.private/rpi
 
 # Copy keys over
 for ip in {200..203}; do ssh-copy-id -i ../.private/rpi pi@192.168.1.$ip; done
