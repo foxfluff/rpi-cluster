@@ -17,6 +17,7 @@
       - apt-transport-https
       - ca-certificates
       - curl
+      - python3-pip # needed later to install Ansible dependency
       force_apt_get: yes
   - name: Download and add GPG key.
     apt_key:
@@ -47,5 +48,23 @@
   - name: Print version installed
     command: "docker -v"
     register: version
+    changed_when: False # this just echos output so nothing will change on the host.
   - debug:
-      msg: "{{ version.stdout.msg }}"
+      msg: "{{ version.stdout }}"
+  - name: Install Ansible dependencies for docker
+    pip:
+      name: docker
+  - name: Docker Hello World
+    docker_container:
+      image: hello-world
+      name: hello-world
+      auto_remove: yes
+    register: docker_status
+  - name: Notify if container didn't run
+    debug:
+      msg: "Error running hello-world!, the container status was {{ docker_status.container.State.Status}} "
+    when: docker_status.container.State.Status != "running"
+  - name: Clean up hello-world image
+    docker_image:
+      name: hello-world
+      state: absent

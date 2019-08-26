@@ -5,10 +5,13 @@
 ; 192.168.1.203 new_hostname=rpi-node-4
 
 [testing]
-rpi-node-1.local
+rpi-node-1.local ansible_python_interpreter=/usr/bin/python3
 
 [cluster]
 rpi-node-1.local
 rpi-node-2.local
 rpi-node-3.local
 rpi-node-4.local
+
+[cluster:vars]
+ansible_python_interpreter=/usr/bin/python3

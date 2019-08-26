@@ -18,3 +18,10 @@ playbook.
 
 <sup>*</sup> Running in to a snag here since it would require passphrase
 authentication, which is not working out of the box on MacOS
+
+## Known Issues
+
+- Python 2 implementation of `docker` and `docker-py` seems to be broken and
+  unusable for Ansible.  Set your Ansible vars to include
+  `ansible_python_interpreter=/usr/bin/python3`, which can be seen in
+  [**./hosts**](./hosts)
