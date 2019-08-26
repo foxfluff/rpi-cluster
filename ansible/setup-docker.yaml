@@ -79,3 +79,10 @@
       join_token: " {{ swarm.swarm_facts.JoinTokens.Worker }} "
       remote_addrs: "{{ cluster_manager }}"
       advertise_addr: "{{ inventory_hostname }}"
+  - name: Get node info
+    hosts: cluster_manager
+    docker_node_info:
+    register: node_info
+  - debug:
+    hosts: cluster_manager
+    var: node_info
