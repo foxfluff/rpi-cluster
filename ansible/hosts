@@ -1,8 +1,8 @@
-; [unconfigured]
-; 192.168.1.200 new_hostname=rpi-node-1
-; 192.168.1.201 new_hostname=rpi-node-2
-; 192.168.1.202 new_hostname=rpi-node-3
-; 192.168.1.203 new_hostname=rpi-node-4
+[unconfigured]
+192.168.1.200 new_hostname=rpi-node-1
+192.168.1.201 new_hostname=rpi-node-2
+192.168.1.202 new_hostname=rpi-node-3
+192.168.1.203 new_hostname=rpi-node-4
 
 [testing]
 rpi-node-1.local ansible_python_interpreter=/usr/bin/python3

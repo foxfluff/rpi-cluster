@@ -1,0 +1,8 @@
+# This is the combination of many playbooks that will hopefully take a fresh
+# install of Raspbian and setup all necessary components of it to function in
+# the swarm.
+
+- include: setup-hostnames.yaml
+- include: setup-ssh.yaml
+- include: update-packages.yaml
+- include: setup-docker.yaml
