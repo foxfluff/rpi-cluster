@@ -5,4 +5,4 @@
 - import_playbook: setup-hostnames.yaml
 - import_playbook: setup-ssh.yaml
 - import_playbook: update-packages.yaml
-- import_playbook: setup-docker.yaml
+# - import_playbook: setup-docker.yaml
