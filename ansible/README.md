@@ -15,5 +15,6 @@ playbook.
 | [**./setup-ssh.yaml**](./setup-ssh.yaml) | Disables password authentication, future goal is to install ssh keys automatically<sup>*</sup> |
 | [**./update-packages.yaml**](./update-packages.yaml) | `sudo apt update; sudo apt upgrade` |
 | [**./setup-docker.yaml**](./setup-docker.yaml) | Installs Docker CE for Raspbian Buster |
+
 <sup>*</sup> Running in to a snag here since it would require passphrase
 authentication, which is not working out of the box on MacOS
