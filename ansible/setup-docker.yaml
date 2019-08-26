@@ -1,5 +1,4 @@
 # Install docker and configure all nodes to work together in a swarm
-# TODO: add swarm configuration.
 
 - hosts: cluster
   remote_user: pi
@@ -8,6 +7,7 @@
     apt_source: deb [arch=armhf] https://download.docker.com/linux/raspbian buster stable
     gpg_url: https://download.docker.com/linux/raspbian/gpg
     gpg_id: "0x0EBFCD88"
+    swarm_name: rpi-cluster
   tasks:
   # Going to emulate what the docker convenience script does.
   - name: Install Dependencies.
@@ -68,3 +68,14 @@
     docker_image:
       name: hello-world
       state: absent
+  - name: Setup swarm manager
+    hosts: cluster_manager
+    docker_swarm:
+      state: present
+    register: swarm
+  - name: Setup swarm workers
+    docker_swarm:
+      state: join
+      join_token: " {{ swarm.swarm_facts.JoinTokens.Worker }} "
+      remote_addrs: "{{ cluster_manager }}"
+      advertise_addr: "{{ inventory_hostname }}"

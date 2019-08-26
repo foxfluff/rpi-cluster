@@ -13,5 +13,9 @@ rpi-node-2.local
 rpi-node-3.local
 rpi-node-4.local
 
+[cluster_manager]
+rpi-node-1.local
+
 [cluster:vars]
 ansible_python_interpreter=/usr/bin/python3
+cluster_manager=rpi-node-1.local
