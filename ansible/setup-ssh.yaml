@@ -1,0 +1,31 @@
+# The goal of this is to generate new (or use existing) keys for ssh
+# authentication, upload to host, and make sure at least the password is
+# changed from the default and password auth over ssh disabled.
+
+- hosts: cluster
+  remote_user: pi
+  become: yes
+  tasks:
+  # - name: Create SSH key
+  # - name: Install new key on system
+  - name: Modify sshd_config to allow only key sign in
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: ^#?PasswordAuthentication
+      line: PasswordAuthentication no
+  - lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: ^#?ChallengeResponseAuthentication
+      line: ChallengeResponseAuthentication no
+  - lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: ^#?PermitRootLogin
+      line: PermitRootLogin no
+  - lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: ^#?PubkeyAuthentication
+      line: PubkeyAuthentication yes
+  - name: Swizzle sshd for new settings to take effect
+    systemd:
+      service: sshd
+      state: restarted
