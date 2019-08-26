@@ -4,19 +4,17 @@
 
 - hosts: unconfigured
   remote_user: pi
+  sudo: yes
   tasks:
   - name: Update client hostnames according to internal variable
-    become: true
     hostname:
       name: "{{ new_hostname }}"
   - name: Update /etc/hosts according to new name
-    become: true
     replace:
       path: /etc/hosts
       regexp: raspberrypi
       replace: "{{ new_hostname }}"
   - name: Swizzle avahi to broadcast the new name
-    become: true
     systemd:
       service: avahi-daemon
       state: restarted

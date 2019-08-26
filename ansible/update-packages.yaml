@@ -2,9 +2,10 @@
 
 - hosts: cluster
   remote_user: pi
+  become: yes
   tasks:
   - name: Update and upgrade apt packages
-    become: true
     apt:
       update_cache: yes
-      upgrade: yes
+      upgrade: "yes" # quotes to prevent deserialization issue
+      force_apt_get: yes # we don't have aptitude so use this instead
