@@ -44,6 +44,7 @@ project.
 | Location | Description |
 |-|-|
 | [**./3dprint**](./3dprint) | Contains various models used to construct an enclosure for this project |
+| [**./ansible**](./ansible) | Contains playbooks and configuration that allow for easy management of nodes in the cluster. |
 
 ### Project BOM
 | Product | Quantity | Link |
