@@ -1,3 +1,6 @@
 {
-    "ansible.customOptions": "-i ./ansible/hosts"
+    "ansible.customOptions": "-i ./ansible/hosts",
+    "[yaml]": {
+        "editor.occurrencesHighlight": false
+    }
 }
