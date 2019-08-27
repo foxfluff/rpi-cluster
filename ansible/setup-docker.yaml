@@ -72,32 +72,33 @@
       name: hello-world
       force_absent: yes
 
-- hosts: cluster_manager
-  remote_user: pi
-  become: true
-  tasks:
-  - name: Setup swarm manager
-    docker_swarm:
-      state: present
-    register: swarm
+# Need to fix variable references, won't work until then.
+# - hosts: cluster_manager
+#   remote_user: pi
+#   become: true
+#   tasks:
+#   - name: Setup swarm manager
+#     docker_swarm:
+#       state: present
+#     register: swarm
 
-- hosts: cluster
-  remote_user: pi
-  become: true
-  tasks:
-  - name: Setup swarm workers
-    docker_swarm:
-      state: join
-      join_token: " {{ swarm.swarm_facts.JoinTokens.Worker }} "
-      remote_addrs: "{{ cluster_manager }}"
-      advertise_addr: "{{ inventory_hostname }}"
+# - hosts: cluster
+#   remote_user: pi
+#   become: true
+#   tasks:
+#   - name: Setup swarm workers
+#     docker_swarm:
+#       state: join
+#       join_token: " {{ swarm.swarm_facts.JoinTokens.Worker }} "
+#       remote_addrs: "{{ cluster_manager }}"
+#       advertise_addr: "{{ inventory_hostname }}"
 
-- hosts: cluster_manager
-  remote_user: pi
-  become: true
-  tasks:
-  - name: Get node info
-    docker_node_info:
-    register: node_info
-  - debug:
-      var: node_info
+# - hosts: cluster_manager
+#   remote_user: pi
+#   become: true
+#   tasks:
+#   - name: Get node info
+#     docker_node_info:
+#     register: node_info
+#   - debug:
+#       var: node_info
