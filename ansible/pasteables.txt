@@ -11,7 +11,8 @@ ssh-agent bash
 ssh-add ../.private/rpi
 
 # Ping all clients
-ansible all -i hosts -u pi -b -m ping
+ansible unconfigured -i hosts -u pi -b -m ping
+ansible cluster -i hosts -u pi -b -m ping
 
 # Check reported hardware revision of RPi's in your cluster
 ansible cluster -i hosts -u pi -a "cat /proc/device-tree/model"
