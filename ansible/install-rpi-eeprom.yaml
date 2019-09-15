@@ -1,0 +1,14 @@
+# Update and upgrade needed packages for the systems
+
+- hosts: cluster
+  remote_user: pi
+  become: yes
+  tasks:
+  - name: Update package list and install rpi-eeprom
+    apt:
+      update_cache: yes
+      force_apt_get: yes # we don't have aptitude so use this instead
+      name: rpi-eeprom
+  - name: Update bootloader
+    shell: rpi-eeprom-update -a
+  - reboot:

@@ -20,6 +20,7 @@ playbook.
 | [**./setup-hostnames.yaml**](./setup-hostnames.yaml) | Takes unconfigured nodes and assigns a new hostname based on the `new_hostname` variable.  Updates immediately and does not require a reboot |
 | [**./setup-ssh.yaml**](./setup-ssh.yaml) | Disables password authentication, future goal is to install ssh keys automatically<sup>*</sup> |
 | [**./update-packages.yaml**](./update-packages.yaml) | `sudo apt update; sudo apt upgrade` |
+| [**./install-rpi-eeprom.yaml**](./install-rpi-eeprom.yaml) | Installs the `rpi-eeprom` package and forces an update.  This fixes an issue with the PoE HAT that would cause a reboot when a simple shutdown was issued. |
 | [**./setup-docker.yaml**](./setup-docker.yaml) | Installs Docker CE for Raspbian Buster |
 
 <sup>*</sup> Running in to a snag here since it would require passphrase
