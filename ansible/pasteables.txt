@@ -9,6 +9,9 @@ mkdir ../.private; ssh-keygen -t rsa -C rpicluster -f ../.private/rpi
 # Copy keys over
 for ip in {200..203}; do ssh-copy-id -i ../.private/rpi pi@192.168.1.$ip; done
 
+# Add fingerprints (warning! this might lead to MITM attacks!)
+for name in {1..4}; do ssh-keyscan rpi-node-$name.local,192.168.1.$((199 + $name)) >> ~/.ssh/known_hosts; done
+
 # Bash session with key added
 ssh-agent bash
 ssh-add ../.private/rpi
