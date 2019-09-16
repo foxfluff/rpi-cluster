@@ -4,7 +4,7 @@
 
 - hosts: unconfigured
   remote_user: pi
-  sudo: yes
+  become: yes
   tasks:
   - name: Update client hostnames according to internal variable
     hostname:
