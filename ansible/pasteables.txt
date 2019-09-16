@@ -1,5 +1,8 @@
 # A series of useful commands that you may need for quick ad-hoc commands
 
+# Make sure hosts are up
+for ip in {200..203}; do ping -c 2 192.168.1.$ip; done
+
 # Generate SSH Keys
 mkdir ../.private; ssh-keygen -t rsa -C rpicluster -f ../.private/rpi
 
