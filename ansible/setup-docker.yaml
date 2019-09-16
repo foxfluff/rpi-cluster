@@ -30,14 +30,15 @@
       line: "{{ apt_source }}"
       create: yes
   - name: Install docker-ce
-    apt:
-      update_cache: yes
-      force_apt_get: yes
-      name: docker-ce
-      install_recommends: no
-    ignore_errors: yes # TODO dear god please change this when possible
-  - name: Reboot systems to fix current issue on Buster
-    reboot:
+    block:
+    - apt:
+        update_cache: yes
+        force_apt_get: yes
+        name: docker-ce
+        install_recommends: no
+    rescue:
+    - name: Reboot systems to fix current issue on Buster
+      reboot:
   - name: Add pi user to the docker group
     user:
       name: pi
@@ -71,34 +72,4 @@
     docker_image:
       name: hello-world
       force_absent: yes
-
-# Need to fix variable references, won't work until then.
-# - hosts: cluster_manager
-#   remote_user: pi
-#   become: true
-#   tasks:
-#   - name: Setup swarm manager
-#     docker_swarm:
-#       state: present
-#     register: swarm
-
-# - hosts: cluster
-#   remote_user: pi
-#   become: true
-#   tasks:
-#   - name: Setup swarm workers
-#     docker_swarm:
-#       state: join
-#       join_token: " {{ swarm.swarm_facts.JoinTokens.Worker }} "
-#       remote_addrs: "{{ cluster_manager }}"
-#       advertise_addr: "{{ inventory_hostname }}"
-
-# - hosts: cluster_manager
-#   remote_user: pi
-#   become: true
-#   tasks:
-#   - name: Get node info
-#     docker_node_info:
-#     register: node_info
-#   - debug:
-#       var: node_info
+      source: pull
