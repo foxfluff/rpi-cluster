@@ -71,5 +71,4 @@
   - name: Clean up hello-world image
     docker_image:
       name: hello-world
-      force_absent: yes
-      source: pull
+      state: absent
