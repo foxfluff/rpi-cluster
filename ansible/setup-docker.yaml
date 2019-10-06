@@ -30,15 +30,15 @@
       line: "{{ apt_source }}"
       create: yes
   - name: Install docker-ce
-    block:
-    - apt:
-        update_cache: yes
-        force_apt_get: yes
-        name: docker-ce
-        install_recommends: no
-    rescue:
-    - name: Reboot systems to fix current issue on Buster
-      reboot:
+    # block:
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+      name: docker-ce
+      install_recommends: no
+    # rescue:
+    # - name: Reboot systems to fix current issue on Buster
+    #   reboot:
   - name: Add pi user to the docker group
     user:
       name: pi
@@ -63,11 +63,6 @@
       image: hello-world
       name: hello-world
       auto_remove: yes
-    register: docker_status
-  - name: Notify if container didn't run
-    debug:
-      msg: "Error running hello-world!, the container status was {{ docker_status.container.State.Status}} "
-    when: docker_status.container.State.Status != "running"
   - name: Clean up hello-world image
     docker_image:
       name: hello-world
